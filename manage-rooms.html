@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2 class="logo">HotelSys</h2>
+      <nav>
+        <a href="#" class="active">🛠️ Admin Panel</a>
+        <a href="index.html">🚪 Logout</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h1>Manage Rooms</h1>
+      <table class="booking-table">
+        <thead>
+          <tr>
+            <th>Room ID</th>
+            <th>Hotel</th>
+            <th>Room Type</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>R001</td>
+            <td>Hotel One</td>
+            <td>Standard</td>
+            <td>Available</td>
+            <td><button>Mark as Maintenance</button></td>
+          </tr>
+          <tr>
+            <td>R002</td>
+            <td>Hotel Two</td>
+            <td>Deluxe</td>
+            <td>Under Maintenance</td>
+            <td><button>Mark as Available</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+</html>

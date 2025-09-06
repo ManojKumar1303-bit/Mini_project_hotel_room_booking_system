@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Hotel Booking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-body">
+  <div class="login-container">
+    <h2>Welcome to Hotel Booking</h2>
+    <form onsubmit="handleLogin(event)">
+      <input type="text" placeholder="Username" required />
+      <input type="password" placeholder="Password" required />
+      <select>
+        <option>User</option>
+        <option>Admin</option>
+      </select>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      const role = document.querySelector("select").value;
+      if (role === "User") {
+        window.location.href = "user-dashboard.html";
+      } else {
+        window.location.href = "admin-dashboard.html";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2 class="logo">HotelSys</h2>
+      <nav>
+        <a href="user-dashboard.html">🏨 Hotels</a>
+        <a href="bookings.html">📃 My Bookings</a>
+        <a href="#" class="active">💳 Payment</a>
+        <a href="index.html">🚪 Logout</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h1>Payment Details</h1>
+      <form>
+        <label>Card Holder Name</label><br>
+        <input type="text" required><br>
+
+        <label>Card Number</label><br>
+        <input type="text" maxlength="16" required><br>
+
+        <label>Expiry Date</label><br>
+        <input type="month" required><br>
+
+        <label>CVV</label><br>
+        <input type="password" maxlength="3" required><br>
+
+        <label>Total Amount</label><br>
+        <input type="text" value="₹3000" readonly><br>
+
+        <button type="submit">Confirm Payment</button>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

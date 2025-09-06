@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Room</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const hotelName = urlParams.get('hotel');
+      document.getElementById("selectedHotel").textContent = hotelName;
+    }
+  </script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2 class="logo">HotelSys</h2>
+      <nav>
+        <a href="user-dashboard.html">🏨 Hotels</a>
+        <a href="bookings.html">📃 My Bookings</a>
+        <a href="payment.html">💳 Payment</a>
+        <a href="index.html">🚪 Logout</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h1>Book Room at <span id="selectedHotel">Loading...</span></h1>
+      <form onsubmit="event.preventDefault(); window.location.href = 'payment.html';">
+  <!-- your fields here -->
+  <button type="submit">Proceed to Payment</button>
+</form>
+
+    </main>
+  </div>
+</body>
+</html>
