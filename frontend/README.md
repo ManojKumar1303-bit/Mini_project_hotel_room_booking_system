@@ -47,7 +47,7 @@ frontend/
 │   │   ├── AdminDashboard.js # Admin dashboard
 │   │   └── Analytics.js     # Analytics dashboard
 │   ├── utils/
-│   │   └── api.js           # API utility functions
+│   │   └──            # API utility functions
 │   ├── App.js               # Main app component
 │   ├── App.css              # App-specific styles
 │   ├── index.js             # App entry point
@@ -108,7 +108,7 @@ npm run eject      # Eject from Create React App
 ```
 
 ### Environment Configuration
-The app automatically proxies API requests to `http://localhost:5000`. For production, update the API base URL in `src/utils/api.js`.
+The app automatically proxies API requests to `http://localhost:5000`. For production, update the API base URL in `src/utils/`.
 
 ### State Management
 - **React Context**: Authentication state management

@@ -20,7 +20,7 @@ const AdminDashboard = () => {
     price: '',
     availableRooms: '',
     totalRooms: '',
-    amenities: []
+    amenities: ''
   });
 
   useEffect(() => {
@@ -176,7 +176,7 @@ const AdminDashboard = () => {
                   price: '',
                   availableRooms: '',
                   totalRooms: '',
-                  amenities: []
+                  amenities: ''
                 });
               }}
               className="btn btn-secondary"
@@ -255,7 +255,6 @@ const AdminDashboard = () => {
                 value={hotelForm.description}
                 onChange={(e) => setHotelForm({ ...hotelForm, description: e.target.value })}
                 rows="3"
-                required
               />
             </div>
             

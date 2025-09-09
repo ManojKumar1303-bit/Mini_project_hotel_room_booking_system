@@ -79,8 +79,8 @@ hotel-booking-system/
 │   │   │   ├── Dashboard.js
 │   │   │   ├── AdminDashboard.js
 │   │   │   └── Analytics.js
-│   │   ├── utils/
-│   │   │   └── api.js
+│   │   ├── s/
+│   │   │   └── 
 │   │   ├── App.js
 │   │   ├── App.css
 │   │   ├── index.js
