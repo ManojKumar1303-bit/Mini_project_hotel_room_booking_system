@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Hotel = require('../models/Hotel');
+const { auth, adminAuth } = require('../middleware/auth');
 
 // GET all hotels
 router.get('/', async (req, res) => {
@@ -23,9 +24,8 @@ router.get('/recommended', async (req, res) => {
   }
 });
 
-// POST add hotel
-// POST add hotel
-router.post('/', async (req, res) => {
+// POST add hotel (Admin only)
+router.post('/', auth, adminAuth, async (req, res) => {
   try {
     const hotel = new Hotel(req.body);
     await hotel.save();
@@ -36,21 +36,26 @@ router.post('/', async (req, res) => {
   }
 });
 
-
-// PUT update hotel
-router.put('/:id', async (req, res) => {
+// PUT update hotel (Admin only)
+router.put('/:id', auth, adminAuth, async (req, res) => {
   try {
     const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!updatedHotel) {
+      return res.status(404).json({ message: 'Hotel not found' });
+    }
     res.json(updatedHotel);
   } catch (err) {
     res.status(400).json({ message: 'Failed to update hotel' });
   }
 });
 
-// DELETE hotel
-router.delete('/:id', async (req, res) => {
+// DELETE hotel (Admin only)
+router.delete('/:id', auth, adminAuth, async (req, res) => {
   try {
-    await Hotel.findByIdAndDelete(req.params.id);
+    const hotel = await Hotel.findByIdAndDelete(req.params.id);
+    if (!hotel) {
+      return res.status(404).json({ message: 'Hotel not found' });
+    }
     res.json({ message: 'Hotel deleted' });
   } catch (err) {
     res.status(500).json({ message: 'Failed to delete hotel' });

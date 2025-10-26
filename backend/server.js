@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/database');
+const env = require('./config/env');
 require('dotenv').config();
 
 const app = express();
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Hotel Booking API is running!' });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

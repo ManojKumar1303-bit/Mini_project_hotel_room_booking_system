@@ -1,50 +1,157 @@
-# 🏨 Hotel Booking System - MERN Stack
+# Hotel Room Booking System
 
-A complete hotel booking system built with MongoDB, Express.js, React, and Node.js featuring advanced AI recommendations, chatbot assistant, and analytics dashboard.
+A full-stack web application for hotel room booking with admin dashboard, user management, and booking functionality.
 
-## ✨ Features
+## Features
 
-### 🎯 Core Features
-- **User Authentication**: JWT-based secure login/register system
-- **Hotel Management**: Browse, search, and filter hotels
-- **Booking System**: Complete booking flow with room availability tracking
-- **User Dashboard**: Manage bookings and view history
-- **Admin Panel**: Full hotel and booking management
+### User Features
+- User registration and authentication
+- Browse available hotels
+- Search and filter hotels
+- Make hotel bookings
+- View booking history
+- Cancel bookings
+- User dashboard
 
-### 🚀 Advanced Features
-- **AI Recommendations**: Personalized hotel suggestions based on user preferences
-- **Chatbot Assistant**: Interactive booking assistant with natural language processing
-- **Analytics Dashboard**: Comprehensive charts and insights using Recharts
-- **Real-time Updates**: Live room availability and booking status
-- **Responsive Design**: Mobile-friendly interface
+### Admin Features
+- Admin authentication
+- Add/Edit/Delete hotels
+- View all bookings
+- Manage hotel inventory
+- Analytics dashboard
+- Revenue tracking
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
-- **Node.js** with Express.js
-- **MongoDB** with Mongoose ODM
-- **JWT** for authentication
-- **bcryptjs** for password hashing
-- **CORS** for cross-origin requests
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT Authentication
+- bcryptjs for password hashing
 
 ### Frontend
-- **React** with functional components and hooks
-- **React Router DOM** for navigation
-- **Axios** for API calls
-- **Recharts** for data visualization
-- **CSS3** with responsive design
+- React.js
+- React Router
+- Axios for API calls
+- Context API for state management
 
-## 📁 Project Structure
+## Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (v4.4 or higher)
+- npm or yarn
+
+## Installation & Setup
+
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd Mini_project_hotel_room_booking_system
+```
+
+### 2. Backend Setup
+```bash
+cd backend
+npm install
+```
+
+### 3. Frontend Setup
+```bash
+cd frontend
+npm install
+```
+
+### 4. Environment Configuration
+Create a `.env` file in the backend directory:
+```env
+NODE_ENV=development
+PORT=5000
+MONGODB_URI=mongodb://localhost:27017/hotel-booking
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+```
+
+### 5. Database Setup
+Make sure MongoDB is running on your system:
+```bash
+# Start MongoDB service
+mongod
+```
+
+### 6. Seed Database (Optional)
+To populate the database with sample data:
+```bash
+cd backend
+node scripts/seedData.js
+```
+
+## Running the Application
+
+### Option 1: Using the Startup Script (Windows)
+```bash
+# Double-click start.bat or run:
+start.bat
+```
+
+### Option 2: Manual Start
+```bash
+# Terminal 1 - Backend
+cd backend
+npm run dev
+
+# Terminal 2 - Frontend
+cd frontend
+npm start
+```
+
+## Default Accounts
+
+### Admin Account
+- Email: `admin@hotelbooking.com`
+- Password: `admin123`
+
+### User Accounts
+- Email: `john@example.com`, Password: `password123`
+- Email: `jane@example.com`, Password: `password123`
+- Email: `mike@example.com`, Password: `password123`
+
+## API Endpoints
+
+### Authentication
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - User login
+- `GET /api/auth/me` - Get current user
+
+### Hotels
+- `GET /api/hotels` - Get all hotels
+- `GET /api/hotels/recommended` - Get recommended hotels
+- `POST /api/hotels` - Add hotel (Admin only)
+- `PUT /api/hotels/:id` - Update hotel (Admin only)
+- `DELETE /api/hotels/:id` - Delete hotel (Admin only)
+
+### Bookings
+- `POST /api/bookings` - Create booking
+- `GET /api/bookings` - Get user bookings
+- `GET /api/bookings/all` - Get all bookings (Admin only)
+- `GET /api/bookings/:id` - Get booking by ID
+- `PUT /api/bookings/:id/cancel` - Cancel booking
+
+### Admin
+- `GET /api/admin/dashboard` - Get dashboard data
+- `GET /api/admin/analytics` - Get analytics data
+
+## Project Structure
 
 ```
-hotel-booking-system/
+Mini_project_hotel_room_booking_system/
 ├── backend/
 │   ├── config/
-│   │   └── database.js
+│   │   ├── database.js
+│   │   └── api.js
 │   ├── controllers/
 │   │   ├── authController.js
-│   │   ├── hotelController.js
-│   │   └── bookingController.js
+│   │   ├── bookingController.js
+│   │   └── hotelController.js
 │   ├── middleware/
 │   │   └── auth.js
 │   ├── models/
@@ -58,8 +165,8 @@ hotel-booking-system/
 │   │   └── admin.js
 │   ├── scripts/
 │   │   └── seedData.js
-│   ├── package.json
-│   └── server.js
+│   ├── server.js
+│   └── package.json
 ├── frontend/
 │   ├── public/
 │   │   └── index.html
@@ -79,173 +186,65 @@ hotel-booking-system/
 │   │   │   ├── Dashboard.js
 │   │   │   ├── AdminDashboard.js
 │   │   │   └── Analytics.js
-│   │   ├── s/
-│   │   │   └── 
+│   │   ├── utils/
+│   │   │   └── api.js
 │   │   ├── App.js
-│   │   ├── App.css
-│   │   ├── index.js
-│   │   └── index.css
+│   │   └── index.js
 │   └── package.json
+├── start.bat
 └── README.md
 ```
 
-## 🚀 Quick Start
+## Features Implemented
 
-### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB (local or MongoDB Atlas)
-- npm or yarn
+### ✅ Completed Features
+- User authentication (login/register)
+- Hotel CRUD operations
+- Booking system
+- Admin dashboard
+- User dashboard
+- Hotel search and filtering
+- Booking management
+- Analytics dashboard
+- Responsive design
 
-### Installation
+### 🔧 Recent Fixes
+- Fixed hotel addition functionality
+- Added proper authentication middleware
+- Fixed API endpoint errors
+- Improved error handling
+- Added comprehensive seed data
+- Fixed frontend-backend integration
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd hotel-booking-system
-   ```
+## Troubleshooting
 
-2. **Install backend dependencies**
-   ```bash
-   cd backend
-   npm install
-   ```
+### Common Issues
 
-3. **Install frontend dependencies**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
+1. **MongoDB Connection Error**
+   - Ensure MongoDB is running: `mongod`
+   - Check MongoDB URI in `.env` file
 
-4. **Set up environment variables**
-   Create a `.env` file in the backend directory:
-   ```env
-   MONGODB_URI=mongodb://localhost:27017/hotel-booking
-   JWT_SECRET=your-super-secret-jwt-key-here
-   PORT=5000
-   ```
+2. **Port Already in Use**
+   - Backend: Change PORT in `.env` file
+   - Frontend: React will prompt to use different port
 
-5. **Seed the database with sample data**
-   ```bash
-   cd backend
-   node scripts/seedData.js
-   ```
+3. **Authentication Issues**
+   - Clear browser localStorage
+   - Check JWT_SECRET in `.env` file
 
-6. **Start the backend server**
-   ```bash
-   npm run dev
-   ```
+4. **Hotel Addition Not Working**
+   - Ensure user is logged in as admin
+   - Check browser console for errors
+   - Verify backend server is running
 
-7. **Start the frontend development server**
-   ```bash
-   cd frontend
-   npm start
-   ```
+### Development Tips
 
-8. **Access the application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:5000
+- Use browser developer tools to debug frontend issues
+- Check backend console for server errors
+- Use MongoDB Compass to view database data
+- Test API endpoints using Postman or similar tools
 
-## 👥 Sample Accounts
-
-After running the seed script, you can use these accounts:
-
-### Admin Account
-- **Email**: admin@hotelbooking.com
-- **Password**: admin123
-- **Access**: Full admin dashboard, hotel management, analytics
-
-### User Accounts
-- **Email**: john@example.com | **Password**: password123
-- **Email**: jane@example.com | **Password**: password123
-- **Email**: mike@example.com | **Password**: password123
-
-## 🎯 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user
-
-### Hotels
-- `GET /api/hotels` - Get all hotels
-- `GET /api/hotels/:id` - Get hotel by ID
-- `GET /api/hotels/recommended` - Get recommended hotels (protected)
-- `POST /api/hotels` - Create hotel (admin only)
-- `PUT /api/hotels/:id` - Update hotel (admin only)
-- `DELETE /api/hotels/:id` - Delete hotel (admin only)
-
-### Bookings
-- `POST /api/bookings` - Create booking (protected)
-- `GET /api/bookings` - Get user bookings (protected)
-- `GET /api/bookings/all` - Get all bookings (admin only)
-- `GET /api/bookings/:id` - Get booking by ID (protected)
-- `PUT /api/bookings/:id/cancel` - Cancel booking (protected)
-
-### Admin
-- `GET /api/admin/dashboard` - Get dashboard data (admin only)
-- `GET /api/admin/analytics` - Get analytics data (admin only)
-
-## 🤖 AI Features
-
-### Recommendation System
-The AI recommendation system analyzes user preferences including:
-- Past booking locations
-- Budget range preferences
-- Preferred amenities
-- Booking patterns
-
-### Chatbot Assistant
-The chatbot can help users with:
-- Finding hotels in specific locations
-- Checking prices and amenities
-- Booking assistance
-- General hotel information
-- Cancellation policies
-
-## 📊 Analytics Dashboard
-
-The analytics dashboard provides:
-- Hotel occupancy rates
-- Booking trends by month
-- Revenue analysis per hotel
-- Seasonal demand patterns
-- Key performance indicators
-
-## 🔧 Development
-
-### Backend Development
-```bash
-cd backend
-npm run dev  # Starts with nodemon for auto-restart
-```
-
-### Frontend Development
-```bash
-cd frontend
-npm start  # Starts React development server
-```
-
-### Database Management
-```bash
-# Seed sample data
-node scripts/seedData.js
-
-# Clear database (be careful!)
-# Delete collections manually or use MongoDB Compass
-```
-
-## 🚀 Deployment
-
-### Backend Deployment
-1. Set up MongoDB Atlas or use a cloud MongoDB service
-2. Update environment variables with production values
-3. Deploy to platforms like Heroku, Railway, or DigitalOcean
-
-### Frontend Deployment
-1. Build the React app: `npm run build`
-2. Deploy to platforms like Netlify, Vercel, or AWS S3
-
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -253,17 +252,6 @@ node scripts/seedData.js
 4. Test thoroughly
 5. Submit a pull request
 
-## 📝 License
+## License
 
-This project is licensed under the MIT License.
-
-## 🆘 Support
-
-For support or questions:
-- Create an issue in the repository
-- Check the documentation
-- Review the sample data and API endpoints
-
----
-
-**Built with ❤️ using the MERN stack**
+This project is for educational purposes.
